@@ -18,5 +18,5 @@ def get_cookies(**kwargs):
 
 with TikTokApi() as api:
     api._get_cookies = get_cookies
-    for trending_video in api.trending.videos(count=10):
-        print(trending_video.author.username)
+    for trending_video in api.trending.videos():
+        print(trending_video.as_dict)
