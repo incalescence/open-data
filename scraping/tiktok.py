@@ -28,7 +28,7 @@ def get_cookies(**kwargs):
 videos = []
 with TikTokApi() as api:
     api._get_cookies = get_cookies
-    for trending_video in api.trending.videos(2):
+    for trending_video in api.trending.videos():
         video_data = flatten(trending_video.as_dict)
 
         for key in list(video_data.keys()):
@@ -37,4 +37,4 @@ with TikTokApi() as api:
         videos.append(video_data)
 
     df = pd.DataFrame.from_dict(videos)
-    df.to_csv('tiktok-data/tiktok.csv', index=False)
+    df.to_csv('tiktok-data/tiktok.csv', mode='a', index=False)
