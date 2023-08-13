@@ -37,4 +37,4 @@ with TikTokApi() as api:
         videos.append(video_data)
 
     df = pd.DataFrame.from_dict(videos)
-    df.to_csv('tiktok-data/tiktok.csv', mode='a', index=False)
+    df.to_csv('tiktok-data/tiktok_raw.csv', mode='a', index=False)
